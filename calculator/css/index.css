@@ -1,0 +1,86 @@
+body {
+  background-color: white;
+  background-image: url(../pics/desktop.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+h1,h2{
+  text-align: center;
+}
+.teacher{
+  background-image: url(../pics/teacher.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 220px;
+  height: 400px;
+  bottom: 0;
+}
+.keyboard {
+  width: 300px;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 0.5);
+  font-family: 'Nova Mono', monospace;
+
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.keyboard span {
+  display: inline-block;
+  margin: .4em;
+  padding: .3em;
+  font-size: 30px;
+  cursor:pointer;
+}
+
+.factors {
+  width: 350px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  background-color: rgba(0, 255, 255, 0.5);
+
+  font-family: 'Nova Mono', monospace;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  text-align: right;
+}
+
+.factors div {
+
+}
+.factors  span {
+  display: inline-block;
+  margin: .4em;
+  padding: .3em;
+  font-size: 30px;
+
+}
+.results {
+  width: 350px;
+  border: 2px solid rgba(255, 0, 255, 0.5);
+  background-color: rgba(255, 0, 255, 0.5);
+
+  font-family: 'Nova Mono', monospace;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  text-align: right;
+}
+
+.results span {
+  margin: .4em;
+  padding: .3em;
+  font-size: 30px;
+  display: inline-block;
+  cursor:pointer;
+
+}
+
+.message {
+  display: none;
+  width: 200px;
+  height: 200px;
+  background-image: url(../pics/vignette-right.svg);
+}
