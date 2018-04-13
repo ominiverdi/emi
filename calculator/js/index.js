@@ -6,11 +6,12 @@ var factor1='';
 var factor2='';
 var factSwitch='factor1';
 
+var keys = [1,2,3,4,5,6,7,8,9,0];
 
 function createKeyboard () {
 
-  for (var i = 0; i < 10; i++) {
-    $('.keyboard').append("<span>"+i+"</span>");
+  for (var i = 0; i < keys.length; i++) {
+    $('.keyboard').append("<span>"+keys[i]+"</span>");
   }
   //symbol X
   $('.keyboard').append("<span>x</span>");
@@ -61,6 +62,24 @@ function keyboardClick(e){
       $('.factor1').append("<span>"+key+"</span>");
       factor1 = factor1+''+key;
     }
+    if(factSwitch=='results') {
+      let resultValue = $('.result-query').attr('id');
+      $('.result-query').html(key);
+      $('.result-error').html(key);
+
+      //
+      if(resultValue==key){
+        $('.result-query').removeClass('result-error');
+        $('.result-query').addClass('result-positive');
+        $('.result-query').html(key);
+        $('.result-query').removeClass('result-query');
+      } else {
+        $('.result-query').addClass('result-error');
+      }
+
+      //remove class query-border if positive
+
+    }
 
 }
 
@@ -102,13 +121,19 @@ function createResultSet() {
     for (var i = 0; i < aline2.length; i++) {
       $('.results').append("<span id='"+aline2[i]+"'>?</span>");
     }
-    $('.results').append("<span>&nbsp;</span>");
+    $('.results').append("<span class='result-empty'>&nbsp;</span>");
   }
   $('.results span').click(checkResultClick);
 }
 
 function checkResultClick(e){
   // console.log(e);
-  console.log($(this).attr('id'));
-  $(this).html($(this).attr('id'));
+
+  console.log('result click: '+$(this).attr('id'));
+  //clean other buttons clicked
+  $('.result-query').removeClass('result-query');
+  //add the query class to target events
+  $(this).addClass('result-query');
+  //show the value
+  // $(this).html($(this).attr('id'));
 }
