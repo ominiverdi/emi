@@ -121,7 +121,7 @@ h1,h2{
   background-size: 50% 50%;
   background-repeat: no-repeat;*/
   width: 55%;
-    height: 16%;
+    height: 22%;
     position: absolute;
     left: 33%;
     top: 1%;
@@ -163,4 +163,13 @@ h1,h2{
 .result-empty {
  border: none !important;
  background: none !important;
+}
+
+@media only screen and (min-width: 1208px) {
+  /* desktop */
+  .message {
+    width: 35%;
+    top:5%;
+    height: 10%;
+  }
 }
