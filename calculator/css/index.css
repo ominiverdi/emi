@@ -124,7 +124,7 @@ h1,h2{
     height: 16%;
     position: absolute;
     left: 33%;
-    top: 5%;
+    top: 1%;
     padding: 4%;
     border: 1px solid white;
     border-radius: .4em;
@@ -148,7 +148,9 @@ h1,h2{
 	margin-left: -10px;
 	margin-bottom: -20px;
 }
-
+.messageContent b {
+  font-size: 1.3em;
+}
 .result-query {
  border: 2px solid yellow !important;
 }

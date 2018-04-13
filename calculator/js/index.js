@@ -75,20 +75,29 @@ function keyboardClick(e){
       if(resultValue==key){
         //clean previous errors
         $('.result-query').removeClass('result-error');
+        //set as answered
+        $('.result-query').removeClass('to-answer');
         //flag as positive
         $('.result-query').addClass('result-positive');
         //set the value
         $('.result-query').html(key);
         //
         $('.result-query').removeClass('result-query');
-        teacherMessage('Number '+ key+ ' is right! Well done!!!','ok');
+        teacherMessage('<b>'+ key+ '</b> est le bon numéro. bien joué!','ok');
+        if($('.to-answer').length==0){
+          document.getElementById('audio_final').play();
+        } else {
+          document.getElementById('audio_yes').play();
+        }
+
 
       } else {
         //show message only if inside a result-jquery
         if ( $( ".result-query" )[0] ) {
             // $( "#myDiv" ).show();
-            teacherMessage('Number '+ key+ ' is not the right one. Click and retry!','error');
+            teacherMessage('<b>'+ key+ '</b> n\'est pas le bon numéro. Cliquez et réessayez!','error');
             $('.result-query').addClass('result-error');
+            document.getElementById('audio_no').play();
         }
 
       }
@@ -130,12 +139,12 @@ function createResultSet() {
   // console.log(aline1);
   //create empty buttons
   for (var i = 0; i < aline1.length; i++) {
-    $('.results').append("<span id='"+aline1[i]+"'>?</span>");
+    $('.results').append("<span id='"+aline1[i]+"'  class='to-answer'>?</span>");
   }
   $('.results').append("<br>");
   if(seconddigit){
     for (var i = 0; i < aline2.length; i++) {
-      $('.results').append("<span id='"+aline2[i]+"'>?</span>");
+      $('.results').append("<span id='"+aline2[i]+"' class='to-answer'>?</span>");
     }
     $('.results').append("<span class='result-empty'>&nbsp;</span>");
   }
