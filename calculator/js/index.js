@@ -4,8 +4,10 @@ window.onload = function(){
 };
 var factor1='';
 var factor2='';
+//phase switcher (factor1,factor2,results). Default value factor1
 var factSwitch='factor1';
 
+//list of keys for keyboard
 var keys = [1,2,3,4,5,6,7,8,9,0];
 
 function createKeyboard () {
@@ -13,12 +15,14 @@ function createKeyboard () {
   for (var i = 0; i < keys.length; i++) {
     $('.keyboard').append("<span>"+keys[i]+"</span>");
   }
+  //new line
+  $('.keyboard').append("<br>");
   //symbol X
   $('.keyboard').append("<span>x</span>");
-  //symbol cancel
-  $('.keyboard').append("<span>canc</span>");
   //symbol =
   $('.keyboard').append("<span>=</span>");
+  //symbol cancel
+  $('.keyboard').append("<span>canc</span>");
   //click on keyboard actions
   $('.keyboard span').click(keyboardClick);
 }
@@ -64,17 +68,29 @@ function keyboardClick(e){
     }
     if(factSwitch=='results') {
       let resultValue = $('.result-query').attr('id');
-      $('.result-query').html(key);
-      $('.result-error').html(key);
+      // $('.result-query').html(key);
+      // $('.result-error').html(key);
 
       //
       if(resultValue==key){
+        //clean previous errors
         $('.result-query').removeClass('result-error');
+        //flag as positive
         $('.result-query').addClass('result-positive');
+        //set the value
         $('.result-query').html(key);
+        //
         $('.result-query').removeClass('result-query');
+        teacherMessage('Number '+ key+ ' is right! Well done!!!','ok');
+
       } else {
-        $('.result-query').addClass('result-error');
+        //show message only if inside a result-jquery
+        if ( $( ".result-query" )[0] ) {
+            // $( "#myDiv" ).show();
+            teacherMessage('Number '+ key+ ' is not the right one. Click and retry!','error');
+            $('.result-query').addClass('result-error');
+        }
+
       }
 
       //remove class query-border if positive
@@ -134,6 +150,23 @@ function checkResultClick(e){
   $('.result-query').removeClass('result-query');
   //add the query class to target events
   $(this).addClass('result-query');
-  //show the value
-  // $(this).html($(this).attr('id'));
+
+}
+
+function teacherMessage(message, flag){
+  // clean previous flags
+  $('.message').removeClass('teacherOK');
+  $('.message').removeClass('teacherError');
+  //show the teacher image
+  $('.teacher').show();
+  console.log("teacherMessage: "+ message);
+  //put the message into the box
+  $('.messageContent').html(message);
+  //close message on any click
+  $('.teacher').click(function(e){
+    $(this).hide();
+  });
+  //flags
+  if(flag=='error')$('.message').addClass('teacherError');
+  if(flag=='ok')$('.message').addClass('teacherOK');
 }
