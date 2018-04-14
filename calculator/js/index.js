@@ -22,7 +22,7 @@ function createKeyboard () {
   //symbol =
   $('.keyboard').append("<span>=</span>");
   //symbol cancel
-  $('.keyboard').append("<span>canc</span>");
+  $('.keyboard').append("<span>Annuler</span>");
   //click on keyboard actions
   $('.keyboard span').click(keyboardClick);
 }
