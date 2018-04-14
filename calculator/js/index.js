@@ -38,7 +38,7 @@ function keyboardClick(e){
       createResultSet();
       return;
     }
-    if(key=="canc"){
+    if(key=="Annuler"){
       console.log(factor1 + "  " + factor2);
       $('.factor1').html("");
       $('.factor2').html("");
