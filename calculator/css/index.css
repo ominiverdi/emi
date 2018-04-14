@@ -165,11 +165,31 @@ h1,h2{
  background: none !important;
 }
 
-@media only screen and (min-width: 1208px) {
+@media only screen and (min-width: 1008px) {
   /* desktop */
   .message {
     width: 35%;
     top:5%;
     height: 10%;
+  }
+  .keyboard {
+    float: left;
+    margin-left: 20%;
+  }
+  .factors,.results {
+    float: right;
+    margin-right: 20%;
+    min-height: 20px;
+  }
+}
+@media only screen and (max-width: 1009px) {
+  h2 {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 13px;
+  }
+  .keyboard span,.factors span,.results span {
+    font-size:  24px;
   }
 }
